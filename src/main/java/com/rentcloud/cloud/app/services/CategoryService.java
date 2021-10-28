@@ -73,8 +73,8 @@ public class CategoryService {
                 if (category.getName() != null) {
                     existCategory.get().setName(category.getName());
                 }
-                if (category.getDescripcion() != null) {
-                    existCategory.get().setDescripcion(category.getDescripcion());
+                if (category.getDescription() != null) {
+                    existCategory.get().setDescription(category.getDescription());
                 }
                 if (category.getClouds() != null) {
                     existCategory.get().setClouds(category.getClouds());

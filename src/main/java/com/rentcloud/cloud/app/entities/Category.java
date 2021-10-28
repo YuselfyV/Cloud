@@ -34,7 +34,7 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String descripcion;
+    private String description;
     
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy= "category")
