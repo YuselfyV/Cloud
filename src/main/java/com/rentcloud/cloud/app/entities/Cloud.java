@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 
 /**
  *
- * @author fdomoreno
  */
 @Data
 @NoArgsConstructor
