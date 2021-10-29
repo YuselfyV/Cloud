@@ -41,6 +41,9 @@ public class Cloud implements Serializable {
     
     
     
+    
+    
+    
     @ManyToOne
     @JoinColumn(name = "categoryId")
     @JsonIgnoreProperties("clouds")
