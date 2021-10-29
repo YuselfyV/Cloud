@@ -5,8 +5,8 @@
  */
 package com.rentcloud.cloud.app.controllers;
 
-import com.rentcloud.cloud.app.entities.Admin;
-import com.rentcloud.cloud.app.services.AdminService;
+import com.rentcloud.cloud.app.entities.Message;
+import com.rentcloud.cloud.app.services.MessageService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,57 +30,57 @@ import org.springframework.web.bind.annotation.RestController;
 public class MessageController {
     
      @Autowired
-    private AdminService service;
+    private MessageService service;
 
     @GetMapping("/all")
-    public List<Admin> getAdmins() {
+    public List<Message> getMessages() {
         return service.getAll();
     }
 
     /**
      * GET/{id}
      *
-     * @param adminId
+     * @param messageId
      * @return
      */
     @GetMapping("/{id}")
-    public Optional<Admin> getAdmin(@PathVariable("id") int adminId) {
-        return service.getAdmin(adminId);
+    public Optional<Message> getMessage(@PathVariable("id") int messageId) {
+        return service.getMessage(messageId);
     }
 
     /**
      * POST
      *
-     * @param admin
+     * @param message
      * @return
      */
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Admin save(@RequestBody Admin admin) {
-        return service.save(admin);
+    public Message save(@RequestBody Message message) {
+        return service.save(message);
     }
 
     /**
      * PUT
      *
-     * @param admin
+     * @param message
      * @return
      */
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Admin update(@RequestBody Admin admin) {
-        return service.update(admin);
+    public Message update(@RequestBody Message message) {
+        return service.update(message);
     }
 
     /**
      * DELETE
      *
-     * @param admin
+     * @param message
      * @return
      */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int adminId) {
-        return service.delete(adminId);
+    public boolean delete(@PathVariable("id") int messageId) {
+        return service.delete(messageId);
     }
 }
