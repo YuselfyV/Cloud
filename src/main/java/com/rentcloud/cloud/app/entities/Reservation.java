@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="reservation")
 public class Reservation implements Serializable {
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
     private Date startDate;
