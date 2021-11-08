@@ -90,12 +90,12 @@ public class ReservationController {
     
     @GetMapping("/report-status")
     public ReservationStatus getReservationsStatusReport(){
-        return service.getReservationStatusReport();
+        return service.getReservationsStatusReport();
     }
     
     @GetMapping("/report-dates/{dateOne}/{dateTwo}")
-    public List<Reservation> getReservationReportDate(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo){
-           return service.getReservationPeriod(dateOne, dateTwo);
+    public List<Reservation> getReservationsReportDate(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo){
+           return service.getReservationsPeriod(dateOne, dateTwo);
        }
     
      @GetMapping("/report-clients")

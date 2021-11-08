@@ -62,15 +62,15 @@ public class ReservationRepository {
      * @return 
      */
     
-    public List<Reservation> getReservationByStatus(String status){
+    public List<Reservation> getReservationsByStatus(String status){
         return repository.findAllByStatus(status);
     }
     
-    public List<Reservation> getReservationPeriod( Date dateOne, Date dateTwo){
+    public List<Reservation> getReservationsPeriod( Date dateOne, Date dateTwo){
         return repository.findAllByStartDateAfterAndStartDateBefore(dateOne, dateTwo);
     }
   
-    public List<CountClient> getTopClient(){
+    public List<CountClient> getTopClients(){
         List <CountClient> clientList = new ArrayList<>();
         List <Object[]> report = repository.countTotalReservationsByClient();
         for (int i = 0; i < report.size();i++) {
