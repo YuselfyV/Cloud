@@ -6,6 +6,7 @@
 package com.rentcloud.cloud.app.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +34,7 @@ public class Admin implements Serializable {
     private String email;
     private String password;
     private String name;
+
 
     
 }

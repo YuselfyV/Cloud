@@ -5,8 +5,13 @@
  */
 package com.rentcloud.cloud.app.repositories;
 
+import com.rentcloud.cloud.app.entities.Client;
+import com.rentcloud.cloud.app.entities.Cloud;
 import com.rentcloud.cloud.app.entities.Reservation;
 import com.rentcloud.cloud.app.repositories.crud.ReservationCrudRepository;
+import com.rentcloud.cloud.app.services.report.CountClient;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +55,27 @@ public class ReservationRepository {
      */
     public void delete (Reservation reservation){
         repository.delete(reservation);
+    }
+    
+    /**
+     * Consultar total de reservaciones por nube
+     * @return 
+     */
+    
+    public List<Reservation> getReservationByStatus(String status){
+        return repository.findAllByStatus(status);
+    }
+    
+    public List<Reservation> getReservationPeriod( Date dateOne, Date dateTwo){
+        return repository.findAllByStartDateAfterAndStartDateBefore(dateOne, dateTwo);
+    }
+  
+    public List<CountClient> getTopClient(){
+        List <CountClient> clientList = new ArrayList<>();
+        List <Object[]> report = repository.countTotalReservationsByClient();
+        for (int i = 0; i < report.size();i++) {
+             clientList.add(new CountClient((Double) report.get(i)[1] ,(Client)report.get(i)[0]));
+        }
+        return clientList;
     }
 }

@@ -13,5 +13,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author Tatiana
  */
 public interface AdminCrudRepository extends CrudRepository<Admin,Integer>{
-    
+       
 }
