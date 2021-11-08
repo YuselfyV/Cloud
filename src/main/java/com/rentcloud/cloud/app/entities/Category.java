@@ -5,6 +5,8 @@
  */
 package com.rentcloud.cloud.app.entities;
 
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
