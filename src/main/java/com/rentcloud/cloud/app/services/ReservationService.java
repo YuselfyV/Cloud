@@ -123,20 +123,20 @@ public class ReservationService {
         return new ReservationStatus(completed.size(), cancelled.size());
     }
 
-    public List<Reservation> getReservationsPeriod(String dateOne, String dateTwo) {
+    public List<Reservation> getReservationsPeriod(String fechaInicial, String fechaFinal) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = new Date();
         Date endDate = new Date();
 
         try {
-            startDate = dateFormat.parse(dateOne);
-            endDate = dateFormat.parse(dateTwo);
+            startDate = dateFormat.parse(fechaInicial);
+            endDate = dateFormat.parse(fechaFinal);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         if (startDate.before(endDate)) {
-            return repository.getReservationsPeriod(endDate, endDate);
+            return repository.getReservationsPeriod(startDate, endDate);
         } else {
             return new ArrayList<>();
         }
